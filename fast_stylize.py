@@ -12,7 +12,7 @@ print("TF-Hub version: ", hub.__version__)
 print("Eager mode enabled: ", tf.executing_eagerly())
 print("GPU available: ", tf.test.is_gpu_available())
 
-# @title Define image loading and visualization functions  { display-mode: "form" }
+#Define image loading and visualization functions  { display-mode: "form" }
 
 def crop_center(image):
   """Returns a cropped square image."""
@@ -52,20 +52,18 @@ def show_n(images, titles=('',)):
     plt.title(titles[i] if len(titles) > i else '')
   plt.show()
 
-# @title Load example images  { display-mode: "form" }
+#Load example images  { display-mode: "form" }
 
-#content_image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Golden_Gate_Bridge_from_Battery_Spencer.jpg/640px-Golden_Gate_Bridge_from_Battery_Spencer.jpg'  # @param {type:"string"}
-content_image_url = 'https://github.com/sha256burim/Implementation-of-TensorFlow-Fast-GAN-Neural-Style-Transfer/blob/main/face1.jpg'  # @param {type:"string"}
-#style_image_url = 'https://upload.wikimedia.org/wikipedia/commons/0/0a/The_Great_Wave_off_Kanagawa.jpg'  # @param {type:"string"}
-style_image_url = 'https://github.com/sha256burim/Implementation-of-TensorFlow-Fast-GAN-Neural-Style-Transfer/blob/main/van.jpg'  # @param {type:"string"}
-output_image_size = 500  # @param {type:"integer"}
+content_image_url = 'https://github.com/sha256burim/Implementation-of-TensorFlow-Fast-GAN-Neural-Style-Transfer/blob/main/face1.jpg' 
+style_image_url = 'https://github.com/sha256burim/Implementation-of-TensorFlow-Fast-GAN-Neural-Style-Transfer/blob/main/van.jpg' 
+output_image_size = 500  
 
 # The content image size can be arbitrary.
 content_img_size = (output_image_size, output_image_size)
 # The style prediction model was trained with image size 256 and it's the 
 # recommended image size for the style image (though, other sizes work as 
 # well but will lead to different results).
-#style_img_size = (256, 256)  # Recommended to keep it at 256.
+#style_img_size = (256, 256)  #keep it at 256.
 style_img_size = (500, 500)
 
 content_image = load_image(content_image_url, content_img_size)
@@ -87,3 +85,5 @@ stylized_image = outputs[0]
 # Visualize input images and the generated stylized image.
 
 show_n([content_image, style_image, stylized_image], titles=['Original content image', 'Style image', 'Stylized image'])
+
+#Done, enjoy your stylized image
